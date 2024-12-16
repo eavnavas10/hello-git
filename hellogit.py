@@ -1,1 +1,1 @@
-print("New Hello Git! despues del git reset")
+print("New Hello Git!")
