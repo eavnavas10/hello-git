@@ -1,0 +1,129 @@
+// Se utiliza para registrar un nombre de usuario para realizar los commits
+git config --global user.name "eavnavas"
+
+// Se utiliza para registrar un nombre de correo para realizar los commits
+git config --global user.email "ernestonavas53@gmail.com"
+
+// Sirve para cambiarle el nombre a la rama master a main
+git branch -m main
+
+// Se utiliza para iniciar git en un proyecto
+git init
+
+// Se utiliza para indicar que ese archivo está listo para añadir al commit
+git add hellogit.py
+
+// Se utiliza para añadir todos los elementos nuevos o modificados del repositorio al conjunto de elementos listos (staging area) para hacerles commit
+git add .
+
+
+.GITIGNORE {
+
+	// Dentro del .gitignore podemos ignorar directorios y todo lo que tengan dentro con el siguiente comando o solamente el nombre del directorio
+	directorio
+	**/directorio
+
+	// O podemos ignorar un solo archivo con su nombre y extensión
+	hellogit.py
+}
+
+// Elimina los ficheros colocados en el staging area, básicamente hace lo opuesto al git add
+git reset .
+git reset hellogit.py
+
+
+// Sirve para ver qué ficheros se encuentran listos para ser commiteados
+git status
+
+// Se utiliza para crear un commit (snapshot o captura) con todos los ficheros añadidos con el add, -m sirve para añadir un comentario
+git commit -m "Aqui puedes añadir un comentario para tu commit"
+
+// Sirve para mostrar a detalle todos los commits o ramas que hemos creado
+git log
+
+// Sirve para regresar a la ultima version (ultimo commit) del archivo que ingresamos
+git checkout hellogit.py 
+
+// Aqui estamos regresando al commit por su numero de id (hash) puede ser con la version corta o la completa como en los ejemplos
+git checkout 67acab9
+git checkout 67acab9d3805a9e5c75aaeb8f169bcff4ffdfbd4
+
+// Con este checkout podemos EJEMPLO: (Rama_no5 = hellogit.py) después de modificar (Rama_No5 = hellogit_modificado.py)
+// y si hacemos checkout volvemos al primer estado (Rama_no5 = hellogit.py)
+git checkout hellogit.py
+
+// Para mostrar el historial en forma de rama
+git log --graph
+
+// Para mostrar el hash resumido de las ramas en una sola línea 
+git log --graph --decorate --all --oneline
+
+// Para crear un alias con un comando para tener un atajo a ese comando
+git config --global alias.tree "git log --graph --decorate --all --oneline"
+
+// Nombre del comando que creamos en la linea de arriba
+git tree
+
+// Muestra las modificaciones que hemos hecho en la rama donde nos encontramos
+git diff
+
+// Se le añade un nombre de version a nuestro proyecto (tag)
+git tag clase_1
+
+// Se utiliza para navegar entre tags, son nombres para versiones estables de nuestro proyecto
+git checkout tags/clase1
+
+// Sirve para crear una nueva rama
+git branch login
+
+// Sirve para navegar entre ramas
+git switch main
+git switch login
+
+// Se utiliza para combinar dos ramas (si estoy en login puedo ver los cambios en el main)
+git merge main
+
+// Es para poder guardar temporalmente cambios (implementaciones a medias) para así poder moverme a otras ramas sin realizar commit (son como borradores)
+git stash
+
+// Se utiliza para ver mis stash (son como borradores)
+git stash list
+
+// Se utiliza para hacer aparecer un stash
+git stash pop
+
+// Se usa para eliminar un stash
+git stash drop
+
+// Para eliminar la rama login
+git branch -d login
+
+COMANDOS POR ESTUDIAR
+*git reset
+*git reset --hard
+*git revert
+
+
+RESUMEN DE COMANDOS BÁSICOS PARA TRABAJAR CON GIT
+git init			-- Inicia un repositorio de git
+git add . 			-- Añade todos los ficheros modificados al staging area
+git reset .			-- Elimina todos los ficheros añadidos al staging area (lo opuesto al git add)
+git status			-- Muestra el estado de nuestro stage area
+git commit -m "mensaje"		-- Realiza un commit (una captura) de nuestro avance junto con un mensaje
+git log				-- Se utiliza para mostrar el historial de commits existentes
+git checkout 67acab9		-- Sirve para navegar entre capturas, archivos y ramas
+git branch login		-- Crea una rama, en este caso 'login'
+git switch login		-- Permite cambiarnos de rama
+git merge master		-- Sirve para traer todos los cambios de otra rama
+
+COMANDOS GITHUB
+git remote add origin git@github.com:eavnavas10/nombre-del-repositorio.git	-- Selecciona el repositorio donde se enviará el commit
+git merge origin main								-- Para fusiona los cambios remotos con mi rama actual
+git fetch origin main 								-- Para ver los cambios que se han hecho desde el repositorio remoto en el repo local
+git pull origin main								-- Es una fusión de los dos anteriores
+git push -u origin main								-- Sube el repositorio de la rama main
+
+
+
+Página web con todos los comandos básicos: https://training.github.com/downloads/es_ES/github-git-cheat-sheet/
+
